@@ -12,7 +12,7 @@ public class BookAdministratorTest {
 
     @Before
     public void setup() {
-        bookAdministrator = new BookAdministrator();
+        bookAdministrator = new BookAdministrator(InitData.initBookMap());
     }
 
     @Test
@@ -40,5 +40,18 @@ public class BookAdministratorTest {
     @Test
     public void testRemoveByNotExistedId() throws Exception {
         assertThat(bookAdministrator.removeBookById(12), is(false));
+    }
+
+    @Test
+    public void testReturnBookSuccessed() throws Exception {
+        Book returnedBook = BookBuilder.newBook().id(7).bookName("Head First jQuery").author("Ryan Benedetti").yearPublish("2011").build();
+        assertThat(bookAdministrator.returnBook(returnedBook), is(true));
+
+    }
+
+    @Test
+    public void testReturnExistedBook() throws Exception {
+        Book returnedBook = BookBuilder.newBook().id(3).bookName("Head First Java, 2nd Edition").author("Kathy Sierra").yearPublish("2005").build();
+        assertThat(bookAdministrator.returnBook(returnedBook), is(false));
     }
 }

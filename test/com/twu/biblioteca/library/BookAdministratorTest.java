@@ -1,5 +1,6 @@
 package com.twu.biblioteca.library;
 
+import com.twu.biblioteca.utils.InitTestData;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +13,8 @@ public class BookAdministratorTest {
 
     @Before
     public void setup() {
-        bookAdministrator = new BookAdministrator(InitData.initBookMap());
+        InitTestData initData = new InitTestData();
+        bookAdministrator = new BookAdministrator(initData.initBookMap());
     }
 
     @Test
@@ -44,7 +46,7 @@ public class BookAdministratorTest {
 
     @Test
     public void testReturnBookSuccessed() throws Exception {
-        Book returnedBook = BookBuilder.newBook().id(7).bookName("Head First jQuery").author("Ryan Benedetti").yearPublish("2011").build();
+        Book returnedBook = BookBuilder.newBook().id(8).bookName("Head First jQuery").author("Ryan Benedetti").yearPublish("2011").build();
         assertThat(bookAdministrator.returnBook(returnedBook), is(true));
 
     }

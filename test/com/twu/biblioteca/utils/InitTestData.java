@@ -2,13 +2,14 @@ package com.twu.biblioteca.utils;
 
 import com.twu.biblioteca.library.Book;
 import com.twu.biblioteca.library.BookBuilder;
+import com.twu.biblioteca.library.InitData;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class InitTestData {
+public class InitTestData extends InitData{
 
-    public static Map<Integer, Book> initBookMap() {
+    public Map<Integer, Book> initBookMap() {
         Map<Integer, Book> bookMap = new HashMap<Integer, Book>();
         bookMap.put(1, BookBuilder.newBook().id(1).bookName("Head First Python").author("Paul Barry").yearPublish("2015").build());
         bookMap.put(2, BookBuilder.newBook().id(2).bookName("Head First Design Patterns").author("Eric Freeman").yearPublish("2004").build());

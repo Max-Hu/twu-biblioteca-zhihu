@@ -1,5 +1,7 @@
 package com.twu.biblioteca.bussiness;
 
+import com.twu.biblioteca.library.InitData;
+import com.twu.biblioteca.utils.InitTestData;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +18,7 @@ public class BookRelatedBusinessTest {
 
     @Before
     public void setup() {
-        bookRelatedBusiness = new BookRelatedBusiness();
+        bookRelatedBusiness = new BookRelatedBusiness(new InitTestData());
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
     }

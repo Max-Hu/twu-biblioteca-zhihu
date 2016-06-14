@@ -14,10 +14,14 @@ public class BookRelatedBusiness {
 
     private BibliotecaUI bibliotecaUI;
 
-    public BookRelatedBusiness() {
-        this.bookAdministrator = new BookAdministrator(InitData.initBookMap());
-        this.bookDirectory = InitData.initBookMap();
+    public BookRelatedBusiness(InitData initData) {
+        this.bookAdministrator = new BookAdministrator(initData.initBookMap());
+        this.bookDirectory = initData.initBookMap();
         this.bibliotecaUI = new BibliotecaUI();
+    }
+
+    public Map<Integer, Book> getBookInventory() {
+        return bookAdministrator.getBookMap();
     }
 
     public void checkOutBook(int id) {
